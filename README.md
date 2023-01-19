@@ -19,7 +19,7 @@ systemctl start docker.service
 ```
 docker swarm init
 # Note the connection string (yours will be different) the workers will need this
-#     docker swarm join --token SWMTKN-1-552ams49r5u3t8x7g7kov0i8mf0g75nz6wob7cxng0y1sk7kql-504tng67szyh0nibzclnl3oig 172.31.2.94:2377
+#     docker swarm join --token SWMTKN-1-552ams49r5u3t8x...clnl3oig 172.31.2.94:2377
 ```
 
 ### Install Portainer (as root)
