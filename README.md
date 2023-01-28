@@ -35,3 +35,20 @@ The admin password is the EC2 instance id.
 ### Join workers command on Swarm server
 As sudo: docker sawrm join ... from the swarm init above
 
+
+### Future work to allow student to spin environment on demand
+- create student IAM group, set role limited to read only
+- Cognito login for students, require one-time approval
+- gateway
+--* to force auth to lambda function which generates CloudFormation stack
+--* show stack status (or console?)
+--* terminate stack
+- template for docker swarm nodes, security group, region, size, tags predetermined
+- auto update DNS based on tag
+- CloudFormation
+--* output of IP of master, swarm join key
+--* input of portainer license
+- Lambda allow only 1 enviroment at a time
+- auto kill stack after 2 hours
+- Message to admin on invocation
+- Instructions for common containers, wazuh, jenkins, etc
