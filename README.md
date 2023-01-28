@@ -40,14 +40,14 @@ As sudo: docker sawrm join ... from the swarm init above
 - create student IAM group, set role limited to read only
 - Cognito login for students, require one-time approval
 - gateway  
---* to force auth to lambda function which generates CloudFormation stack  
---* show stack status (or console?)  
---* terminate stack  
+  - to force auth to lambda function which generates CloudFormation stack  
+  - show stack status (or console?)  
+  - terminate stack  
 - template for docker swarm nodes, security group, region, size, tags predetermined
 - auto update DNS based on tag
 - CloudFormation  
---* output of IP of master, swarm join key  
---* input of portainer license  
+  - output of IP of master, swarm join key  
+  - input of portainer license  
 - Lambda allow only 1 enviroment at a time
 - auto kill stack after 2 hours
 - Message to admin on invocation
