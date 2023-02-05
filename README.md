@@ -33,8 +33,40 @@ The admin password is the EC2 instance id.
 
 
 ### Join workers command on Swarm server
-As sudo: docker sawrm join ... from the swarm init above
+As sudo: docker swarm join ... from the swarm init above
 
+### Spot fleets that terminate at given time
+```
+aws ec2 request-spot-fleet --spot-fleet-request-config file://spot-options.json
+```
+
+spot-options.json # Need to parameterize this: time, image, sg, role, all fixed.
+```
+{
+  "TargetCapacity": 1,
+  "IamFleetRole": "arn:aws:iam::788715698479:role/aws-ec2-spot-fleet-tagging-role",
+  "TerminateInstancesWithExpiration": true,
+  "Type": "request",
+  "ValidUntil": "2023-02-04T21:30:00Z",
+  "InstanceInterruptionBehavior": "terminate",
+  "LaunchSpecifications": [
+      {
+          "ImageId": "ami-05bfbece1ed5beb54",
+          "KeyName": "ohio",
+          "SecurityGroups": [
+              {
+                  "GroupId": "sg-05a87a5fbfd0fd5ae"
+              }
+          ],
+          "InstanceType": "t2.micro",
+          "Placement": {
+              "AvailabilityZone": "us-east-2a"
+          }
+      }
+  ]
+}
+
+```
 
 ### Future work to allow student to spin environment on demand
 - create student IAM group, set role limited to read only
